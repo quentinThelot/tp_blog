@@ -1,7 +1,7 @@
 <?php
 $title = 'Mon Blog';
 $Subtitle = '';
-$lien = '<a href="index.php">Retour à la liste des billets</a>';
+$lien = '<a href="Home">Retour à la liste des billets</a>';
 ob_start();
 ?>
 
@@ -20,7 +20,7 @@ $request2->closeCursor();
 while ($data1 = $request1->fetch())
 {
   echo '<br><strong>' . htmlspecialchars($data1['author']) . '</strong>' . ' le ' . htmlspecialchars($data1['date_fr2']) .
-  ' (<a href="index.php?action=changeView&postId=' . $data1['post_id']  . '&id=' . $data1['id'] . '">modifier</a>)' . '<br><br><div class="center">' . htmlspecialchars($data1['comment']) . '</div><br><div class="divider"></div>';
+  ' (<a href="Home-changeView-' . $data1['post_id']  . '-' . $data1['id'] . '">modifier</a>)' . '<br><br><div class="center">' . htmlspecialchars($data1['comment']) . '</div><br><div class="divider"></div>';
 
 }
 $request1->closeCursor();
@@ -31,7 +31,7 @@ $request1->closeCursor();
 
 <!-- insertion d'un commentaire dans la bdd -->
 <!-- champ : id_billet , auteur , commentaire , date_commentaire -->
-<form action="index.php?action=addComment&amp;id=<?= $_GET['id'] ?>" method="post">
+<form action="Home-addComment-<?= $_GET['id'] ?>" method="post">
   <div>
     <label for="author">Auteur : </label>
     <input type="text" id="author" name="author" placeholder="Votre Pseudo">

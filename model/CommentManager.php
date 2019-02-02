@@ -8,9 +8,6 @@ require_once("model/Manager.php");
 class CommentManager extends Manager
 {
 
-
-
-
  public function getComments ($postId)
  {
    $db = $this->dbConnect();
@@ -21,9 +18,6 @@ class CommentManager extends Manager
    return $request1;
 
  }
-
-
-
 
  public function  postComment($postId, $author, $comment)
  {
@@ -40,9 +34,6 @@ class CommentManager extends Manager
 
  }
 
-
-
-
  public function changeComment($postId, $commentId, $newComment)
  {
   $db = $this->dbConnect();
@@ -54,9 +45,6 @@ class CommentManager extends Manager
   ));
   return $newComment;
 }
-
-
-
 
 public function changePage($id,$postId)
 {
@@ -70,7 +58,5 @@ public function changePage($id,$postId)
  return $postId;
 
 }
-
-
 
 }
